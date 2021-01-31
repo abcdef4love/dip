@@ -1,6 +1,5 @@
 package com.henry.drop.slice;
 
-import com.henry.drop.MainAbility;
 import com.henry.drop.ResourceTable;
 import ohos.aafwk.ability.AbilitySlice;
 import ohos.aafwk.content.Intent;
@@ -53,7 +52,7 @@ public class MainAbilitySlice extends AbilitySlice {
                     int time_seconed_int = (int) Math.floor(time % 60);
 
                     new ToastDialog(tContext).setText("预计全部滴完时间为：" + time_minutes_int + "分钟" + time_seconed_int+"秒").show();
-                    //CountDown();
+
                     //二十滴是一毫升
 
                     TaskDispatcher globalTaskDispatcher = getGlobalTaskDispatcher(TaskPriority.HIGH);
@@ -62,13 +61,11 @@ public class MainAbilitySlice extends AbilitySlice {
                         public void run() {
                             HiLog.info(label, "async task1 run");
                             try {
-                                Thread.sleep(2000L);
+                                Thread.sleep((long) (time*980));
                                 RingSound();
                                 ToastDialog tToastDialog = new ToastDialog(MainAbilitySlice.this);
-                                tToastDialog.setText("11");
+                                tToastDialog.setText("时间到了！请注意点滴！！");
                                 tToastDialog.show();
-
-                                new ToastDialog( MainAbilitySlice.this).setText("111").show();
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -84,10 +81,17 @@ public class MainAbilitySlice extends AbilitySlice {
         // 步骤1：实例化对象
         SoundPlayer soundPlayer = new SoundPlayer();
         // 步骤2：创建DTMF_0（高频1336Hz，低频941Hz）持续时间1000ms的tone音
-        soundPlayer.createSound(ToneDescriptor.ToneType.DTMF_0, 10000);
+        soundPlayer.createSound(ToneDescriptor.ToneType.DTMF_0, 2000);
         // 步骤3：tone应播放，暂停和资源释放
         soundPlayer.play();
         HiLog.info(label,"ring over");
+        soundPlayer.createSound(ToneDescriptor.ToneType.DTMF_1, 2000);
+        // 步骤3：tone应播放，暂停和资源释放
+        soundPlayer.play();
+        soundPlayer.createSound(ToneDescriptor.ToneType.DTMF_2, 2000);
+        // 步骤3：tone应播放，暂停和资源释放
+        soundPlayer.play();
+
         soundPlayer.pause();
         soundPlayer.release();
     }
