@@ -7,9 +7,9 @@
       "name": "1.0"
     },
     "apiVersion": {
-      "compatible": 3,
-      "target": 4,
-      "releaseType": "Beta1"
+      "compatible": 4,
+      "target": 5,
+      "releaseType": "Release"
     }
   },
   "deviceConfig": {},
@@ -17,7 +17,9 @@
     "package": "com.henry.drop",
     "name": ".MyApplication",
     "deviceType": [
-      "phone"
+      "phone",
+      "wearable",
+      "tablet"
     ],
     "distro": {
       "deliveryWithInstall": true,
@@ -36,13 +38,41 @@
             ]
           }
         ],
+        "metaData": {
+          "customizeData": [
+            {
+              "name": "hwc-theme",
+              "value": "androidhwext:style/Theme.Emui.NoTitleBar"
+            }
+          ]
+        },
         "orientation": "unspecified",
         "name": "com.henry.drop.MainAbility",
         "icon": "$media:icon",
         "description": "$string:mainability_description",
-        "label": "Drop",
+        "label": "点滴助手",
         "type": "page",
         "launchType": "standard"
+      }
+    ],
+    "reqPermissions": [
+      {
+        "name": "ohos.permission.GET_DISTRIBUTED_DEVICE_INFO"
+      },
+      {
+        "name": "ohos.permission.DISTRIBUTED_DATASYNC"
+      },
+      {
+        "name": "ohos.permission.DISTRIBUTED_DEVICE_STATE_CHANGE"
+      },
+      {
+        "name": "ohos.permission.READ_USER_STORAGE"
+      },
+      {
+        "name": "ohos.permission.WRITE_USER_STORAGE"
+      },
+      {
+        "name": "ohos.permission.GET_BUNDLE_INFO"
       }
     ]
   }

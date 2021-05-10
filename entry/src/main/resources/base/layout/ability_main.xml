@@ -5,15 +5,125 @@
     ohos:width="match_parent"
     ohos:orientation="vertical">
 
-    <Text
-        ohos:id="$+id:text_helloworld"
-        ohos:height="match_content"
-        ohos:width="match_content"
-        ohos:background_element="$graphic:background_ability_main"
-        ohos:layout_alignment="horizontal_center"
-        ohos:text="点滴助手1"
-        ohos:text_size="50"/>
 
+
+
+
+
+
+
+    <DependentLayout
+        ohos:height="60vp"
+        ohos:width="match_parent"
+        ohos:top_margin="10vp">
+
+        <Text
+            ohos:id="$+id:call_test"
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:horizontal_center="1"
+            ohos:multiple_lines="false"
+            ohos:text="点滴助手"
+            ohos:text_color="#ff000000"
+            ohos:text_size="24fp"
+            ohos:top_margin="3vp"/>
+
+        <Image
+            ohos:id="$+id:mail_edit_continue"
+            ohos:height="50vp"
+            ohos:width="50vp"
+            ohos:align_parent_bottom="1"
+            ohos:align_parent_right="1"
+            ohos:image_src="$media:icon_qianyi"
+            ohos:padding="10vp"
+            ohos:right_margin="20vp"
+            ohos:scale_mode="zoom_center"
+            />
+    </DependentLayout>
+
+
+
+
+    <DirectionalLayout
+        ohos:height="50vp"
+        ohos:width="match_parent"
+        ohos:align_parent_bottom="true"
+        ohos:alignment="vertical_center"
+        ohos:background_element="#ffffff"
+        ohos:left_padding="0vp"
+        ohos:orientation="horizontal"
+        ohos:right_padding="0vp">
+
+        <Text
+            ohos:height="30vp"
+            ohos:width="100vp"
+            ohos:background_element="$graphic:background_ability_main"
+            ohos:layout_alignment="horizontal_center"
+            ohos:text="液体总量(ml)"
+            ohos:text_alignment="right"
+            ohos:multiple_lines="true"
+            ohos:max_text_lines="2"
+            ohos:text_size="15fp"/>
+
+        <TextField
+            ohos:height="30vp"
+            ohos:width="100vp"
+            ohos:hint="请输入总量"
+            ohos:layout_alignment="horizontal_center"
+            ohos:left_padding="0vp"
+            ohos:right_padding="0vp"
+            ohos:text_alignment="horizontal_center"
+            ohos:text_size="15vp"
+            ohos:id="$+id:liquid_total"
+            ohos:text_input_type="pattern_number"
+            />
+
+    </DirectionalLayout>
+
+
+
+    <DirectionalLayout
+        ohos:height="50vp"
+        ohos:width="match_parent"
+        ohos:align_parent_bottom="true"
+        ohos:alignment="vertical_center"
+        ohos:background_element="#ffffff"
+        ohos:left_padding="0vp"
+        ohos:orientation="horizontal"
+        ohos:right_padding="0vp">
+
+        <Text
+            ohos:height="60vp"
+            ohos:width="100vp"
+            ohos:background_element="$graphic:background_ability_main"
+            ohos:layout_alignment="horizontal_center"
+            ohos:text="每20滴滴落所需时间"
+            ohos:text_alignment="right"
+            ohos:multiple_lines="true"
+            ohos:max_text_lines="2"
+            ohos:text_size="15fp"/>
+
+        <TextField
+            ohos:id="$+id:drip_spend_Time"
+
+            ohos:height="60vp"
+            ohos:width="100vp"
+            ohos:hint="滴落所需时间(秒）"
+            ohos:layout_alignment="horizontal_center"
+            ohos:text_input_type="pattern_number"
+
+            ohos:left_padding="5vp"
+            ohos:right_padding="0vp"
+            ohos:text_alignment="horizontal_center"
+            ohos:text_size="15vp"/>
+
+
+
+
+    </DirectionalLayout>
+
+
+<!--
     <TableLayout
         ohos:height="match_content"
         ohos:width="match_parent"
@@ -21,53 +131,65 @@
         ohos:layout_alignment="center"
         ohos:row_count="1"
         ohos:text_alignment="center"
-        ohos:top_margin="60vp">
+        ohos:top_margin="15fp">
 
         <Text
             ohos:height="match_content"
-            ohos:width="200vp"
+            ohos:width="100vp"
             ohos:background_element="$graphic:background_ability_main"
             ohos:layout_alignment="horizontal_center"
-            ohos:text="液体总量"
-            ohos:text_alignment="center"
-            ohos:text_size="50"/>
+            ohos:text="液体总量(ml)"
+            ohos:text_alignment="right"
+            ohos:multiple_lines="true"
+            ohos:max_text_lines="2"
+            ohos:text_size="15fp"/>
 
         <TextField
             ohos:id="$+id:liquid_total"
             ohos:text_input_type="pattern_number"
             ohos:height="match_content"
             ohos:width="150vp"
-            ohos:hint="请输入药品总量(毫升)："
-            ohos:text_alignment="center"
-            ohos:text_size="50"/>
+            ohos:hint="请输入药品总量"
+            ohos:text_alignment="left"
+            ohos:multiple_lines="true"
+            ohos:max_text_lines="2"
+            ohos:text_size="15fp"/>
 
         <Text
             ohos:height="match_content"
-            ohos:width="200vp"
+            ohos:width="100vp"
             ohos:background_element="$graphic:background_ability_main"
             ohos:layout_alignment="horizontal_center"
-            ohos:text="每20滴低落所需时间（秒）："
-            ohos:text_alignment="center"
-            ohos:text_size="50"
+            ohos:text="每20滴低落所需时间(秒）"
+            ohos:text_alignment="right"
+            ohos:multiple_lines="true"
+            ohos:max_text_lines="2"
+            ohos:text_size="15fp"
             />
 
         <TextField
             ohos:id="$+id:drip_spend_Time"
             ohos:text_input_type="pattern_number"
             ohos:height="match_content"
-            ohos:width="150vp"
+            ohos:width="match_content"
             ohos:hint="每20滴低落所需时间（秒）"
-            ohos:text_alignment="center"
-            ohos:text_size="50"/>
+            ohos:text_alignment="left"
+            ohos:multiple_lines="true"
+            ohos:max_text_lines="2"
+            ohos:text_size="15fp"/>
 
-    </TableLayout>
+    </TableLayout>-->
+
 
     <Button
         ohos:id="$+id:clickButton"
-        ohos:height="match_parent"
-        ohos:width="match_parent"
+        ohos:height="37fp"
+        ohos:width="260fp"
+        ohos:layout_alignment="center"
         ohos:text="开始倒计时"
-        ohos:text_size="50"/>
+        ohos:text_size="15fp"
+        ohos:background_element="$graphic:background_button"/>
+
 
 
 </DirectionalLayout>
