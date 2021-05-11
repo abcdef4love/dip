@@ -23,7 +23,7 @@
             ohos:width="match_content"
             ohos:horizontal_center="1"
             ohos:multiple_lines="false"
-            ohos:text="点滴助手"
+            ohos:text="$string:app_name"
             ohos:text_color="#ff000000"
             ohos:text_size="24fp"
             ohos:top_margin="3vp"/>

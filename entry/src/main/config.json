@@ -50,7 +50,8 @@
         "name": "com.henry.drop.MainAbility",
         "icon": "$media:icon",
         "description": "$string:mainability_description",
-        "label": "点滴助手",
+        "label": "$string:app_name",
+        "visible": true,
         "type": "page",
         "launchType": "standard"
       }

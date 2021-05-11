@@ -25,8 +25,6 @@ import ohos.distributedschedule.interwork.DeviceInfo;
 import java.util.List;
 import ohos.agp.components.Image;
 
-import static ohos.data.search.schema.PhotoItem.TAG;
-
 public class MainAbilitySlice extends AbilitySlice  implements IAbilityContinuation {
     private static final String TAG = MainAbilitySlice.class.getSimpleName();
     TextField t_TotalLiquid ,t_SpendTime;
@@ -59,10 +57,12 @@ public class MainAbilitySlice extends AbilitySlice  implements IAbilityContinuat
                         dialog.setListener(
                                 deviceInfo -> {
                                     LogUtil.debug(TAG, deviceInfo.getDeviceName());
+                                    LogUtil.debug(TAG, deviceInfo.getDeviceId());
                                     LogUtil.info(TAG, "continue button click");
                                     try {
                                         // 开始任务迁移
                                         continueAbility();
+                                        //请求迁移后，调用该页面的 onStartContinuation() 方法
                                         LogUtil.info(TAG, "continue button click end");
                                     } catch (IllegalStateException | UnsupportedOperationException e) {
                                         WidgetHelper.showTips(this, ResourceTable.String_tips_mail_continue_failed);
@@ -249,7 +249,7 @@ public class MainAbilitySlice extends AbilitySlice  implements IAbilityContinuat
     //跨设备迁移支持：
     @Override
     public boolean onStartContinuation() {
-        return false;
+        return true;
     }
 
     @Override
